@@ -12,7 +12,7 @@ This is an example of how to use Express and Mongoose to build a simple API for 
 3. Install dependencies using npm install
 ## Usage
 1. Set up a MongoDB database and provide the connection URI in `config/database.js`
-2. Start the server using` npm start`
+2. Start the server using` npm run start`
 3. Use a tool such as Postman to interact with the API endpoints
 ## Structure
 The code is organized using the MVC (Model-View-Controller) pattern, separating the code into models, controllers, and routes. Middleware functions are defined in a separate middleware folder.

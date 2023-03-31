@@ -36,26 +36,28 @@ const createStudent = async (req, res) => {
     const newStudent = await student.save();
     res.status(201).json(newStudent);
   } catch (error) {
-    res.status(400).exports.updateStudent = async (req, res) => {
-      try {
-        const student = await Student.findById(req.params.id);
-        if (!student) {
-          return res.status(404).json({ message: "Student not found" });
-        }
-        student.firstName = req.body.firstName || student.firstName;
-        student.lastName = req.body.lastName || student.lastName;
-        student.gradeLevel = req.body.gradeLevel || student.gradeLevel;
-        student.email = req.body.email || student.email;
-        student.password = req.body.password || student.password;
+    res.status(400);
+  }
+};
 
-        const updateStudent = await student.save();
-        res.join(updateStudent);
-      } catch (error) {
-        res.status(500).json({
-          message: error.message,
-        });
-      }
-    };
+const updateStudent = async (req, res) => {
+  try {
+    const student = await Student.findById(req.params.id);
+    if (!student) {
+      return res.status(404).json({ message: "Student not found" });
+    }
+    student.firstName = req.body.firstName || student.firstName;
+    student.lastName = req.body.lastName || student.lastName;
+    student.gradeLevel = req.body.gradeLevel || student.gradeLevel;
+    student.email = req.body.email || student.email;
+    student.password = req.body.password || student.password;
+
+    const updateStudent = await student.save();
+    res.join(updateStudent);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
   }
 };
 
@@ -75,5 +77,7 @@ const deleteStudent = async (req, res) => {
 module.exports = {
   getStudent,
   getStudentById,
+  createStudent,
+  updateStudent,
   deleteStudent,
 };
